@@ -1,9 +1,26 @@
 import { BaseEntity } from "src/common/crud/base.entity";
 import { ProjectCategoryEnum } from "src/common/enum/project-category.enum";
+import { ProjectTagEntity } from "src/modules/projects-tags/entities/project-tag.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('project')
 export class ProjectEntity extends BaseEntity {
+
+    //#region Constructor
+
+  /**
+   * Construtor padrão
+   */
+   constructor(
+    partial: Partial<ProjectEntity> | ProjectEntity,
+  ) {
+    super();
+
+    Object.assign(this, { ...partial });
+  }
+
+  //#endregion
+
 
   //#region Public Properties
 
@@ -33,10 +50,10 @@ export class ProjectEntity extends BaseEntity {
 
   //#endregion
 
-  //#region Relation
+  //#region Relations
 
-  // @OneToMany(() => SubjectContractEntity, subjectContract => subjectContract.contract)
-  // public subjectsContracts?: SubjectContractEntity[];
+  @OneToMany(() => ProjectTagEntity, projectTags => projectTags.project)
+  public projectTags?: ProjectTagEntity[];
 
   //#endregion
 
