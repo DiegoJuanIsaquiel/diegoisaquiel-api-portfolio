@@ -4,11 +4,10 @@ import { CreateTagPayload } from '../models/create-tag.payload';
 import { UpdateTagPayload } from '../models/update-tag.payload';
 import { TagService } from '../services/tag.service';
 
-
 @Controller('tag')
 export class TagController {
 
-  //#region Constructo
+  //#region Constructor
 
   constructor(
     private readonly tagService: TagService
@@ -24,22 +23,22 @@ export class TagController {
   }
 
   @Get(':entityId')
-  public getOne(@Param('entityId') entityId: string){
+  public getOne(@Param('entityId') entityId: string): Promise<TagEntity> {
     return this.tagService.get(entityId);
   }
 
   @Post()
-  public createOne(@Body() payload: CreateTagPayload): Promise<TagEntity>  {
+  public createOne(@Body() payload: CreateTagPayload): Promise<TagEntity> {
     return this.tagService.create(payload);
   }
 
   @Put(':entityId')
-  public updateOne(@Param('entityId') entityId: string, @Body() payload: UpdateTagPayload): Promise<TagEntity>  {
+  public updateOne(@Param('entityId') entityId: string, @Body() payload: UpdateTagPayload): Promise<TagEntity> {
     return this.tagService.update(entityId, payload);
   }
 
   @Delete(':entityId')
-  public deleteOne(@Param('entityId') entityId: string): Promise<TagEntity>  {
+  public deleteOne(@Param('entityId') entityId: string): Promise<TagEntity> {
     return this.tagService.delete(entityId);
   }
 

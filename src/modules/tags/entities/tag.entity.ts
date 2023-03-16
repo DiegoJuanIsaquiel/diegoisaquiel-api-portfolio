@@ -34,7 +34,7 @@ export class TagEntity extends BaseEntity {
 
   //#region Relations
 
-  @OneToMany(() => ProjectTagEntity, projectTag => projectTag.tag)
+  @OneToMany(() => ProjectTagEntity, projectTags => projectTags.tag)
   public projectTags?: ProjectTagEntity[];
 
   //#endregion

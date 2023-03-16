@@ -10,45 +10,45 @@ export class TagService {
 
   constructor(
     @InjectRepository(TagEntity)
-    private readonly projectRepository: Repository<TagEntity>,
+    private readonly tagRepository: Repository<TagEntity>,
 ){}
 
 public listMany(): Promise<TagEntity[]> {
-    return this.projectRepository.find();
+    return this.tagRepository.find();
 }
 
-public async get(entityId: string) {
-    const entity = await this.projectRepository.findOne(entityId);
+public async get(entityId: string): Promise<TagEntity> {
+    const entity = await this.tagRepository.findOne(entityId);
 
     if (!entity)
-        throw new NotFoundException(`O Projeto procurado pela identificação (${entityId}) não foi encontrado.`);
+        throw new NotFoundException(`A Tag procurada pela identificação (${entityId}) não foi encontrada.`);
 
     return entity;
 }
 
-public create(payload: CreateTagPayload) {
-    const entity = this.projectRepository.create(payload);
-    return this.projectRepository.save(entity)
+public create(payload: CreateTagPayload): Promise<TagEntity> {
+    const entity = this.tagRepository.create(payload);
+    return this.tagRepository.save(entity)
 }
 
-public async update(entityId: string, payload: UpdateTagPayload) {
-    const entity = await this.projectRepository.preload({
+public async update(entityId: string, payload: UpdateTagPayload): Promise<TagEntity> {
+    const entity = await this.tagRepository.preload({
         id: +entityId,
         ...payload
     })
 
     if(!entity)
-        throw new NotFoundException(`O Projeto procurado pela identificação (${entityId}) não foi encontrado.`);
+        throw new NotFoundException(`A Tag procurada pela identificação (${entityId}) não foi encontrada.`);
 
-    return this.projectRepository.save(entity);
+    return this.tagRepository.save(entity);
 }
 
-public async delete(entityId: string){
-    const entity = await this.projectRepository.findOne(entityId);
+public async delete(entityId: string): Promise<TagEntity> {
+    const entity = await this.tagRepository.findOne(entityId);
 
     if(!entity)
-        throw new NotFoundException(`O Projeto procurado pela identificação (${entityId}) não foi encontrado.`);
+        throw new NotFoundException(`A Tag procurada pela identificação (${entityId}) não foi encontrada.`);
 
-    return this.projectRepository.remove(entity)
+    return this.tagRepository.remove(entity)
 }
 }
