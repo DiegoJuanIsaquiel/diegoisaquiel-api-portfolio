@@ -1,7 +1,7 @@
 //#region Imports
 
 import { CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { BaseIdentityEntity } from '../identity/base-identity-entity';
+import { BaseIdentityEntity } from '../identity/base-identity.entity';
 
 //#endregion
 

@@ -1,7 +1,7 @@
 //#region Imports
 
 import { BaseIdentityProxy } from '../identity/base-identity.proxy';
-import { BaseTimestampEntity } from './base-timestamp-entity';
+import { BaseTimestampEntity } from './base-timestamp.entity';
 
 //#endregion
 

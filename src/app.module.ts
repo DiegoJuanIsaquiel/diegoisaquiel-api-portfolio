@@ -15,8 +15,12 @@ import { TagRoutingModule } from './modules/tags/tag.routing.module';
       username: 'postgres',
       password: 'docker',
       database: 'postgres',
-      autoLoadEntities: true,
+      autoLoadEntities: false,
       synchronize: true,
+      entities: [
+        'dist/modules/**/entities/*.{entity,repository}.{ts,js}',
+        'dist/common/**/*.{entity,repository}.{d.ts,js}'
+      ],
     }),
     ProjectRoutingModule,
     TagRoutingModule,

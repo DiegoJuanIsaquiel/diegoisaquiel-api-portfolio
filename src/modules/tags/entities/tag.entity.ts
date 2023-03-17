@@ -3,6 +3,7 @@ import { ProjectCategoryEnum } from "src/common/enum/project-category.enum";
 import { ProjectTagEntity } from "src/modules/projects-tags/entities/project-tag.entity";
 import { ProjectEntity } from "src/modules/projects/entities/project.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { TagProxy } from "../models/tag.proxy";
 
 @Entity('projects_tags')
 export class TagEntity extends BaseEntity {
@@ -11,7 +12,7 @@ export class TagEntity extends BaseEntity {
   /**
    * Construtor padrão
    */
-   constructor(
+  constructor(
     partial: Partial<TagEntity> | TagEntity,
   ) {
     super();
@@ -31,11 +32,21 @@ export class TagEntity extends BaseEntity {
 
   //#endregion
 
-
   //#region Relations
 
   @OneToMany(() => ProjectTagEntity, projectTags => projectTags.tag)
   public projectTags?: ProjectTagEntity[];
+
+  //#endregion
+
+  //#region Public Methods
+
+  /**
+   * Método que retorna um proxy da entidade
+   */
+  public toProxy(): TagProxy {
+    return new TagProxy(this);
+  }
 
   //#endregion
 

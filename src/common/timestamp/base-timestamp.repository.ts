@@ -2,7 +2,7 @@
 
 import { NotFoundException } from '@nestjs/common';
 import { BaseIdentityRepository } from '../identity/base-identity.repository';
-import { BaseTimestampEntity } from './base-timestamp-entity';
+import { BaseTimestampEntity } from './base-timestamp.entity';
 
 //#endregion
 

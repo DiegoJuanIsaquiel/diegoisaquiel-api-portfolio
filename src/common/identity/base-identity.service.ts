@@ -1,6 +1,6 @@
 //#region Imports
 
-import { BaseIdentityEntity } from './base-identity-entity';
+import { BaseIdentityEntity } from './base-identity.entity';
 import { BaseIdentityRepository } from './base-identity.repository';
 
 //#endregion

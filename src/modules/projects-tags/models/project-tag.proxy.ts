@@ -3,6 +3,9 @@
 import { ProjectTagEntity } from '../entities/project-tag.entity';
 import { GetManyDefaultResponseProxy } from '../../../common/proxies/get-many-default-response.proxy';
 import { BaseProxy } from '../../../common/crud/base.proxy';
+import { TagProxy } from 'src/modules/tags/models/tag.proxy';
+import { ProjectProxy } from 'src/modules/projects/models/project.proxy';
+import { mapCrudIfValid } from 'src/common/utils/crud';
 
 //#endregion
 
@@ -20,11 +23,26 @@ export class ProjectTagProxy extends BaseProxy<ProjectTagEntity> {
     entity: ProjectTagEntity,
   ) {
     super(entity);
+
+    this.projectId = entity.projectId
+    this.tagId = entity.tagId
+    this.tag = mapCrudIfValid(entity.tag)
+    this.project = mapCrudIfValid(entity.project)
   }
 
   //#endregion
 
+  //#region Public properties
 
+  public projectId: number;
+
+  public tagId: number;
+
+  public tag?: TagProxy;
+
+  public project?: ProjectProxy;
+
+  //#endregion
 }
 
 /**

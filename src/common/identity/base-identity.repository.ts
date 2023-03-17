@@ -1,7 +1,7 @@
 //#region Imports
 
 import { BaseRepository } from 'typeorm-transactional-cls-hooked';
-import { BaseIdentityEntity } from './base-identity-entity';
+import { BaseIdentityEntity } from './base-identity.entity';
 
 //#endregion
 
