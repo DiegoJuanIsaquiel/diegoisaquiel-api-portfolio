@@ -1,4 +1,5 @@
 import { BaseEntity } from "src/common/crud/base.entity";
+import { ToProxy } from "src/common/proxies/to-proxy";
 import { ProjectEntity } from "src/modules/projects/entities/project.entity";
 import { TagEntity } from "src/modules/tags/entities/tag.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, Unique } from "typeorm";
@@ -6,7 +7,7 @@ import { ProjectTagProxy } from "../models/project-tag.proxy";
 
 @Entity('projects_tags')
 @Unique(['projectId', 'tagId'])
-export class ProjectTagEntity extends BaseEntity {
+export class ProjectTagEntity extends BaseEntity implements ToProxy<ProjectTagProxy> {
 
   //#region Constructor
 

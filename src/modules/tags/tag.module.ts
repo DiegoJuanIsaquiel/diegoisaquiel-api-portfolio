@@ -8,7 +8,6 @@ import { TagService } from './services/tag.service';
     imports: [
         TypeOrmModule.forFeature([
             TagEntity,
-            TagRepository
         ])
     ],
     exports: [

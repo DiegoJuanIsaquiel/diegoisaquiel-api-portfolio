@@ -5,7 +5,7 @@ import { ProjectEntity } from "src/modules/projects/entities/project.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { TagProxy } from "../models/tag.proxy";
 
-@Entity('projects_tags')
+@Entity('tag')
 export class TagEntity extends BaseEntity {
   //#region Constructor
 

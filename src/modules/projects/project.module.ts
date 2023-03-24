@@ -9,7 +9,6 @@ import { ProjectService } from './services/project.service';
     imports: [
         TypeOrmModule.forFeature([
             ProjectEntity,
-            ProjectRepository
         ])
     ],
     exports: [

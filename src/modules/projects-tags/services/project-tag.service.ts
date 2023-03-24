@@ -9,11 +9,13 @@ import { mapCrud } from '../../../common/utils/crud';
 import { GetManyDefaultResponseProjectTagProxy } from '../models/project-tag.proxy';
 import { ProjectTagRepository } from '../repositories/project-tag.repository';
 import { BaseService } from '../../../common/crud/base.service'
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 //#endregion
 
 @Injectable()
-export class ProjectTagService extends BaseService<ProjectTagEntity, ProjectTagRepository> {
+export class ProjectTagService extends BaseService<ProjectTagEntity, ProjectTagRepository>{
 
     //#region Constructor
 

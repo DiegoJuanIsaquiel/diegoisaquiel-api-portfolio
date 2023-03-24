@@ -10,17 +10,13 @@ import { TagRoutingModule } from './modules/tags/tag.routing.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'db',
       port: 5432,
       username: 'postgres',
       password: 'docker',
-      database: 'postgres',
-      autoLoadEntities: false,
+      database: 'diegoisaquiel-portfolio',
+      autoLoadEntities: true,
       synchronize: true,
-      entities: [
-        'dist/modules/**/entities/*.{entity,repository}.{ts,js}',
-        'dist/common/**/*.{entity,repository}.{d.ts,js}'
-      ],
     }),
     ProjectRoutingModule,
     TagRoutingModule,
