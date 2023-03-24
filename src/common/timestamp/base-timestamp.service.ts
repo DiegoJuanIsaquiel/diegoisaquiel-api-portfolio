@@ -1,7 +1,7 @@
 //#region Imports
 
 import { TypeOrmCrudService } from '@rewiko/crud-typeorm';
-import { BaseTimestampEntity } from './base-timestamp-entity';
+import { BaseTimestampEntity } from './base-timestamp.entity';
 import { BaseTimestampRepository } from './base-timestamp.repository';
 
 //#endregion

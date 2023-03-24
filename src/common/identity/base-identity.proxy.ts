@@ -1,7 +1,7 @@
 //#region Imports
 
 //import { ApiProperty } from '@nestjs/swagger';
-import { BaseIdentityEntity } from './base-identity-entity';
+import { BaseIdentityEntity } from './base-identity.entity';
 
 //#endregion
 

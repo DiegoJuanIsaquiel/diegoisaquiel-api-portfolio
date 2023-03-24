@@ -12,7 +12,7 @@ export class ProjectTagController {
   //#region Constructo
 
   constructor(
-    private readonly tagService: ProjectTagService
+    private readonly projectTagService: ProjectTagService
   ) { }
 
   //#endregion
@@ -24,27 +24,27 @@ export class ProjectTagController {
     @Param('projectId', ParseIntPipe) projectId: number,
     @Query() paginationQuery: PaginationQuery,
   ): Promise<GetManyDefaultResponseProjectTagProxy> {
-    return this.tagService.listMany(projectId, paginationQuery);
+    return this.projectTagService.listMany(projectId, paginationQuery);
   }
 
   @Get(':entityId')
   public getOne(@Param('entityId') entityId: string){
-    return this.tagService.get(entityId);
+    return this.projectTagService.get(entityId);
   }
 
   @Post()
   public createOne(@Body() payload: CreateProjectTagPayload): Promise<ProjectTagEntity>  {
-    return this.tagService.create(payload);
+    return this.projectTagService.create(payload);
   }
 
   @Put(':entityId')
   public updateOne(@Param('entityId') entityId: string, @Body() payload: UpdateProjectTagPayload): Promise<ProjectTagEntity>  {
-    return this.tagService.update(entityId, payload);
+    return this.projectTagService.update(entityId, payload);
   }
 
   @Delete(':entityId')
   public deleteOne(@Param('entityId') entityId: string): Promise<ProjectTagEntity>  {
-    return this.tagService.delete(entityId);
+    return this.projectTagService.delete(entityId);
   }
 
   //#endregion
